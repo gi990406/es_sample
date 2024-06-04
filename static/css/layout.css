@@ -1,0 +1,435 @@
+/* 시작 시점에선 0도, 50% 시점에선 180도, 완료 시점에선 360도 회전시키는 애니메이션입니다. */
+@keyframes lotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(180deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes fade-up-animation {
+    0% {}
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.col:hover .star {
+    /* animation-duration   */
+    animation-name: lotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    /*무한 반복 */
+    /* or */
+    /* animation : lotate 3s; */
+}
+
+
+/* 오버레이 박스 스타일 */
+.overlay {
+    position: absolute;
+    /* 절대 위치 설정 */
+    top: 90;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 흰색 박스 */
+    z-index: 1;
+    /* 다른 요소 위에 배치 */
+}
+
+.floating-talk {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-talk {
+    opacity: 1;
+}
+
+.fade-up-animation {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fade-up-animation.active {
+    animation-name: fade-up-animation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+
+.page-title {
+    position: relative;
+    margin-top: 202px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.page-title.animation-active {
+    animation-name: fade-up-animation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+
+.page-title span {
+    position: relative;
+    display: inline-block;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.page-title span:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    left: -15px;
+    right: 0;
+    bottom: -24px;
+    width: 40%;
+    height: 3px;
+    background: #0072BC;
+}
+
+.page-title span:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    left: -15px;
+    right: 0;
+    bottom: -23px;
+    width: calc(100% + 30px);
+    height: 1px;
+    margin: 0 auto;
+    background: #6B6B6B;
+}
+
+.page-title {
+    margin-top: 100px;
+    text-align: center !important;
+}
+
+.page-title span {
+    font-size: 1.25rem;
+}
+
+.main_title {
+    /*text-align:center;*/
+    margin-bottom: 15px;
+    background: url(../images/title_line.png) center no-repeat;
+}
+
+.main_title h2 {
+    font-size: 31px;
+    margin: 0;
+    letter-spacing: -1px;
+    /* font-family:NanumBarunGothicLight; */
+    font-weight: 500;
+    display: inline-block;
+    background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+    padding: 0 15px 0 0;
+}
+
+.main_title h2 span {
+    color: #838383;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    margin: 0 0 0 5px;
+}
+
+.btn-chat-kakaott {
+    background: url('/static/images/icon/btc_kakao_bg.png') no-repeat;
+    background-size: 62px 61px;
+    position: fixed;
+    z-index: 999;
+    bottom: 90px;
+    right: 12px;
+    width: 60px;
+    height: 60px;
+    padding: 1px 4px 7px 5px;
+}
+
+.btn-chat-kakaott a.naver {
+    background: url('/static/images/icon/btn-chat-kakao.png') no-repeat;
+    background-size: 60px;
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.btn-chat-kakaott a.naver:hover {
+    background: url('/static/images/icon/btn-chat-kakao-on.png') no-repeat;
+    background-size: 60px;
+}
+
+.btn-chat-callingtt {
+    background: url('/static/images/icon/btc_naver_bg.png') no-repeat;
+    background-size: 62px 61px;
+    position: fixed;
+    z-index: 999;
+    bottom: 20px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    padding: 1px 4px 7px 5px;
+    cursor: pointer;
+}
+
+.btn-chat-callingtt a.naver {
+    background: url('/static/images/icon/phone-call.png') no-repeat;
+    background-size: 60px;
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.btn-chat-callingtt a.naver:hover {
+    background: url('/static/images/icon/phone-call-on.png') no-repeat;
+    background-size: 60px;
+}
+
+
+/* .btn-top {
+    background-size: 62px 61px;
+    position: fixed;
+    z-index: 999;
+    bottom: 20px;
+    right: 6px;
+    width: 60px;
+    height: 60px;
+    padding: 1px 4px 7px 5px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.btn-top a.naver {
+    position: absolute;
+    top: 27px;
+    left: 21px;
+    display: block;
+    border: solid #999595;
+    border-width: 2px 0 0 2px;
+    padding: 8px;
+    transform: rotate(45deg);
+} */
+
+footer {
+    background: #eef1f3;
+    padding: 30px 0;
+}
+
+footer h5 {
+    margin: 0;
+    text-align: center;
+}
+
+footer .footer_menu {
+    border-top: 1px solid #cbcccc;
+    border-bottom: 1px solid #cbcccc;
+    padding: 10px 0;
+    margin: 30px 0 25px 0;
+}
+
+footer .footer_menu ul {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+footer .footer_menu ul span {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 7px;
+    background: #898a8b;
+}
+
+footer .footer_menu ul li {
+    display: inline-block;
+    /* font-family:NanumBarunGothicBold;  */
+    font-weight: 700;
+}
+
+footer .footer_menu ul li a {
+    display: block;
+    color: #6d6d6d;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+footer .footer_menu ul li a:hover {
+    color: #333;
+}
+
+footer .copy_box {}
+
+footer .copy_box .copyright {
+    text-align: center;
+    padding: 0;
+}
+
+
+footer .copy_box .copyright p {
+    color: #868686;
+    margin: 5px 0;
+    letter-spacing: -0.5px;
+}
+
+footer .copy_box .copyright p span.bar {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #9a9a9a;
+    margin: 0 10px;
+}
+
+footer .copy_box .copyright p span.add {}
+
+footer .copy_box .copyright p span.add span.add_tag {
+    background: #a7a7a7;
+    color: #fff;
+    padding: 1px 10px;
+    display: inline-block;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+footer .copy_box .copyright p span.add button {
+    width: 19px;
+    height: 19px;
+    background: url(../images/add_plus.png) no-repeat #fff;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+footer .copy_box .copyright p span.add button:hover {
+    background: url(../images/add_plus_on.png) no-repeat #c3c3c3;
+    border: 1px solid #c3c3c3;
+}
+
+footer .copy_box .copyright p span.add button.m_r {
+    margin-right: 10px;
+}
+
+footer .copy_box .copyright p span.m_add {
+    display: none;
+}
+
+footer .copy_box .copyright p span.add button:focus-within span.add_box {
+    display: block;
+}
+
+footer .copy_box .copyright p span.add button span.add_box {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    bottom: 25px;
+    left: -190px;
+    background: #fff;
+    padding: 5px 10px;
+    z-index: 2;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+footer .copy_box .copyright p span.add button span.add_box ul {
+    margin: 0;
+    text-align: left;
+}
+
+footer .copy_box .copyright p span.add button span.add_box ul li {
+    font-size: 14px;
+    border-bottom: 1px dashed #ccc;
+    margin: 0 0 3px 0;
+    padding: 0 0 3px 0;
+    width: 100%;
+}
+
+footer .copy_box .copyright p span.add button span.add_box ul li:last-child {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+}
+
+
+
+
+
+footer .copy_box .copyright ul {
+    text-align: center;
+}
+
+footer .copy_box .copyright ul li {
+    display: inline-block;
+    letter-spacing: -0.5px;
+    line-height: 150%;
+    color: #868686;
+    /* font-family:NanumBarunGothicLight; */
+    font-weight: 300;
+    font-size: 15px;
+}
+
+footer .copy_box .copyright ul li span.line {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 3px;
+    background: #868686;
+}
+
+footer .copy_box .bottom_sns {
+    text-align: right;
+}
+
+footer .copy_box .bottom_sns ul {}
+
+footer .copy_box .bottom_sns ul li {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+
+footer .copy_box .bottom_sns ul li a {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+footer .copy_box .bottom_sns ul li.sns_icon01 {
+    background: url(../images/sns_icon01.png) no-repeat;
+}
+
+footer .copy_box .bottom_sns ul li.sns_icon02 {
+    background: url(../images/sns_icon02.png) no-repeat;
+}
+
+footer .copy_box .bottom_sns ul li.sns_icon03 {
+    background: url(../images/sns_icon03.png) no-repeat;
+}
+
+footer .copy_box .bottom_sns ul li.sns_icon04 {
+    background: url(../images/sns_icon04.png) no-repeat;
+}
+
+footer .copy_box .bottom_sns ul li.sns_icon05 {
+    background: url(../images/sns_icon05.png) no-repeat;
+}
